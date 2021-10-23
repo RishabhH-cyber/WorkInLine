@@ -4,3 +4,7 @@ CREATE DATABASE databasename;
 
 --Syntax
 DROP DATABASE databasename;
+
+--Backup
+BACKUP DATABASE databasename
+TO DISK = 'filepath';
