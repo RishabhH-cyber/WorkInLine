@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>Slider</title>
+   <link rel="stylesheet" href="mypage.css">
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script>
+	$(document).ready(function(){
+    $("img").click(function(){
+	       var src1=$(this).attr('src');
+           $(".imgcontain").empty();
+           $('<img />') .attr('src',src1).appendTo($('.imgcontain'));
+           $(".imgcontain").children().css({"float":"left", "width":"25px","height":"25px"});
+           $(".imgcontain").children().animate({
+               left:'0px',
+               height: '300px',
+               width: '400px'
+               },1000);
+	   });
+            var count = 0;
+            $("#btnnext").click(function(){
+           if(count <=   5)
+           {
+           $(".newscroll div:visible:first").hide(500);
+        $(".newscroll div:visible:last").next().show(500);
+            $("#btnprev").removeAttr("disabled");
+           count++;
+           if(count == 6)
+             {
+            $(this).attr("disabled","disabled");
+             }
+            }
+        });
+             $("#btnprev").click(function() {
+           if(count >=1)
+           {
+           $(".newscroll div:visible:first").prev().show(500);
+           $(".newscroll div:visible:last").hide(500);
+            $("#btnnext").removeAttr("disabled");
+           count--;
+           if(count == 0)
+             {
+               $(this).attr("disabled","disabled");
+             }
+            }
+           });
+              /*$(".newscroll div").hover(function(){
+              $(this).children("img").toggleClass("opacity");
+              $(this).children("img").next().toggle();
+                 
+           });
+           */
+          
+      });
+       </script>
+	</head>
+<body>
+<div class="maindiv">
+     <center>
+	<div class="scrolldiv">
+            <button id="btnprev" class="mid floatleft btnsize prevsize">prev</button>
+        <div class="newscroll">
+		   <div class="floatleft imgdiv0 tooltip"><img src="img/img1.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 1st image</span>
+           </div>
+		   <div class="floatleft imgdiv1 tooltip"><img src="img/img2.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 2nd image</span>
+           </div>
+		   <div class="floatleft imgdiv2 tooltip"><img src="img/img3.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 3rd image</span>
+            </div>
+		   <div class="floatleft imgdiv3 tooltip"><img src="img/img4.jpg" width="200" height="200">
+             <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 4th image</span>
+           </div>
+		   <div class="floatleft imgdiv4 tooltip"><img src="img/img5.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 5th image</span>
+           </div>
+		   <div class="floatleft imgdiv5 tooltip"><img src="img/img6.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 6th image</span>
+           </div>
+		   <div class="floatleft imgdiv6 tooltip"><img src="img/img7.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 7th image</span>
+           </div>
+		   <div class="floatleft imgdiv7 tooltip"><img src="img/img8.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 8th image</span>
+           </div>
+		   <div class="floatleft imgdiv8 tooltip"><img src="img/img9.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 9th image</span>
+           </div>
+		   <div class="floatleft imgdiv9 tooltip"><img src="img/img10.jpg" width="200" height="200">
+               <span class="tooltip1"></span>
+               <span class="tooltiptext">this is 10th image</span>
+           </div>
+          </div> 
+           <button id="btnnext" class="mid floatleft btnsize nxtsize">next</button>
+		</div></center>
+</div>
+    </center>
+<center><div class="imgcontain">
+
+</div> </center> 
+  </body>
+</html>
